@@ -25,12 +25,12 @@ function serveChai(msg?: string){
 
 class KulhadChai{
     serve(){
-        return ` Serving KulhadChai`
+        return `Serving KulhadChai`
     }
 }
 class CuttingChai{
     serve(){
-        return ` Serving CuttingChai`
+        return `Serving CuttingChai`
     }
 }
 
@@ -41,3 +41,39 @@ function serve(chai:KulhadChai|CuttingChai){
 }
 
 // Custom Type Guards : You can create your own type guard functions using is.
+type ChaiOrder={
+    type:string,
+    sugar:number
+}
+ function isChaiorder(obj:any):obj is ChaiOrder{
+    return(
+        typeof obj === "object" && obj!== null &&
+        typeof obj.type ==="string" &&
+        typeof obj.sugar ==="number"
+    )
+ }
+
+ function serveChaiOrder(item:ChaiOrder|string){
+    if(isChaiorder(item)){
+        return ` Serving ${item.type} chai with${item.sugar} sugar`
+    }
+    return `Serving  custom chai ${item}`
+ }
+
+ type MasalaChai = {type:"masala",spicelevel:number};
+ type ElaichiChai = {type:"elaichi",aroma:number};
+ type GingerChai = {type:"ginger",amount:number};
+
+ type Chai = MasalaChai | GingerChai |ElaichiChai
+
+ function Makechai(orede:Chai){
+    switch (orede.type) {
+        case "masala":
+            return `Serving masala chai`
+        case "ginger":
+            return `Serving ginger chai`
+        case "elaichi":
+            return `Serving elaichi chai`
+    
+    }
+ }
