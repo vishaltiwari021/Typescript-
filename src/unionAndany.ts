@@ -15,3 +15,4 @@ value = "hello";
 value = true;
 
 // we avoid the (any) in the code mostly
+//intersection:-
