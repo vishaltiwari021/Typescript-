@@ -1,4 +1,4 @@
-//Here we discuss about he arrats , enums, tupples, etc..
+//Here we discuss about he arrats , enums, tuples, etc..
 
 //Array:--
 
